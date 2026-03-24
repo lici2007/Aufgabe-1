@@ -10,7 +10,7 @@ public class KlasseStudierende {
     }
 
     public frageStellen(String frage){
-        return name + matrikelnummer + studiengang + ": " + frage;
-        
+        return name + ", " + matrikelnummer + ", " + studiengang + ": " + frage;
+
     }
 }
