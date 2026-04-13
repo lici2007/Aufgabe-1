@@ -10,7 +10,7 @@ public class Tests {
         String antwort = dozierender.frageBeantworten(studierender, "Gerne. Ich hätte Mittwochs um 10:00 Uhr Zeit.");
         System.out.println(antwort);
 
-        String sprechstundenanfrage = studierender.Sprechstundenanfrage(dozierender, "Montag", "10:00", "Fragen zum Projekt");
+        String sprechstundenanfrage = studierender.sprechstundenanfrage(dozierender, "Montag", "10:00", "Fragen zum Projekt");
         System.out.println(sprechstundenanfrage);
 
         String feedback = studierender.feedbackSchreiben(dozierender, "Vielen Dank, dass sie sich zeit nehmen!");
