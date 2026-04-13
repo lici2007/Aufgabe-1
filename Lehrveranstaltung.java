@@ -57,22 +57,74 @@ public class Lehrveranstaltung {
     }
     
     public String VorlesungsstundenHinzufuegen (String vorlesung) {
-        this.vorlesungsstunden = vorlesung;
+        String[] neu = new String[vorlesungsstunden.length + 1];
+        
+        for (int i = 0; i < vorlesungsstunden.length; i++) {
+            neu[i] = vorlesungsstunden[i];
+        }
+        neu[vorlesungsstunden.length] = vorlesung;
+        vorlesungsstunden = neu;
+        
         return "Die Vorlesungsstunden für die Lehrveranstaltung " + titel + " wurden auf " + vorlesung + " gesetzt.";
     }
 
+
     public String VorlesungsstundenEntfernen () {
-        this.vorlesungsstunden = null;
+        //this.vorlesungsstunden = null;
+        int count = 0;
+        // zuerst zählen, wie viele Studierende übrig bleiben
+        for (int i = 0; i < vorlesungsstunden.length; i++) {
+            if (!vorlesungsstunden[i].equals(vorlesung)) {
+                count++;
+            }
+        }
+
+        String[] neu = new String[count];
+        int index = 0;
+        
+        for (int i = 0; i < vorlesungsstunden.length; i++) {
+            if (!vorlesungsstunden[i].equals(vorlesung)) {
+                neu[index++] = vorlesungsstunden[i];
+                
+            }
+        }
+        vorlesungsstunden = neu;
+
         return "Die Vorlesungsstunden für die Lehrveranstaltung " + titel + " wurden entfernt.";
     }
 
     public String PraktikumsstundenHinzufuegen (String praktikum) {
-        this.praktikumsstunden = praktikum;
+         String[] neu = new String[praktikumsstunden.length + 1];
+        
+        for (int i = 0; i < praktikumsstunden.length; i++) {
+            neu[i] = praktikumsstunden[i];
+        }
+        neu[praktikumsstunden.length] = praktikum;
+        praktikumsstunden = neu;
+        
         return "Die Praktikumsstunden für die Lehrveranstaltung " + titel + " wurden auf " + praktikum + " gesetzt.";
     }
 
     public String PraktikumsstundenEntfernen () {
-        this.praktikumsstunden = null;
+         
+        int count = 0;
+        // zuerst zählen, wie viele Studierende übrig bleiben
+        for (int i = 0; i < praktikumsstunden.length; i++) {
+            if (!praktikumsstunden[i].equals(praktikum)) {
+                count++;
+            }
+        }
+
+        String[] neu = new String[count];
+        int index = 0;
+        
+        for (int i = 0; i < praktikumsstunden.length; i++) {
+            if (!praktikumsstunden[i].equals(praktikum)) {
+                neu[index++] = praktikumsstunden[i];
+                
+            }
+        }
+        praktikumsstunden = neu;
         return "Die Praktikumsstunden für die Lehrveranstaltung " + titel + " wurden entfernt.";
     }
 
