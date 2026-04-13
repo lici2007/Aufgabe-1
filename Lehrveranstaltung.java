@@ -1,70 +1,87 @@
 public class Lehrveranstaltung {
-    private String Titel; 
-    private String Dozierende; 
-    private String[] Studierende; 
-    private String Vorlesungsstunden;
-    private String Praktikumsstunden;
+    private String titel; 
+    private String dozierender; 
+    private String[] studierende; 
+    private String vorlesungsstunden;
+    private String praktikumsstunden;
 
-    public Lehrveranstaltung (String Titel, String Dozierende, String Studierende) {
-        this.Titel = Titel;
-        this.Dozierende = Dozierende;
-        this.Studierende = Studierende;
+    public Lehrveranstaltung (String titel, Dozierender dozierender, String[] studierende) {
+        this.titel = titel;
+        this.dozierender = dozierender.getName();
+        this.studierende = studierende;
     }
 
 
-    public String StudierendeHinzufuegen (KlasseStudierende Studierende) {
+    public String StudierendeHinzufuegen (String name) {
         //Hinzufügen eines neuen Studierenden zur Lehrveranstaltung
-        String[] neueStudierende = new String[this.Studierende.length + 1];
-        for (int i = 0; i < this.Studierende.length; i++) {
-            neueStudierende[i] = this.Studierende[i];
+        String[] neu = new String[studierende.length + 1];
+        
+        for (int i = 0; i < studierende.length; i++) {
+            neu[i] = studierende[i];
         }
-        neueStudierende[this.Studierende.length] = Studierende;
-        this.Studierende = neueStudierende;
+        
+        neu[studierende.length] = name;
+        studierende = neu;
 
         //Rückgabe einer Bestätigungsmeldung
-        return "Der Studierende " + Studierende + " wurde zur Lehrveranstaltung " + Titel + " hinzugefügt.";
+        return "Der Studierende " + name + " wurde zur Lehrveranstaltung " + titel + " hinzugefügt.";
     }
 
 
 
-    public String StudierendeEntfernen (KlasseStudierende Studierende) {
+    public String StudierendeEntfernen (String name) {
         //Entfernen eines Studierenden aus der Lehrveranstaltung
-        String[] neueStudierende = new String[this.Studierende.length - 1];
-        int index = 0;
-        for (int i = 0; i < this.Studierende.length; i++) {
-            if (!this.Studierende[i].equals(Studierende)) {
-                neueStudierende[index] = this.Studierende[i];
-                index++;
+
+        int count = 0;
+        // zuerst zählen, wie viele Studierende übrig bleiben
+        for (int i = 0; i < studierende.length; i++) {
+            if (!studierende[i].equals(name)) {
+                count++;
             }
         }
-        this.Studierende = neueStudierende;
+
+        String[] neu = new String[count];
+        int index = 0;
+        
+        for (int i = 0; i < studierende.length; i++) {
+            if (!studierende[i].equals(name)) {
+                neu[index++] = studierende[i];
+                
+            }
+        }
+        
+        studierende = neu;
+        
         //Rückgabe einer Bestätigungsmeldung
-        return "Der Studierende " + Studierende + " wurde von der Lehrveranstaltung " + Titel + " entfernt.";
+        return "Der Studierende " + name + " wurde von der Lehrveranstaltung " + titel + " entfernt.";
     }
     
-
-
-    public String VorlesungsstundenHinzufuegen (KlasseVorlesungsstunde Vorlesungsstunden) {
-        this.Vorlesungsstunden = Vorlesungsstunden;
-        return "Die Vorlesungsstunden für die Lehrveranstaltung " + Titel + " wurden auf " + Vorlesungsstunden + " gesetzt.";
+    public String VorlesungsstundenHinzufuegen (String vorlesung) {
+        this.vorlesungsstunden = vorlesung;
+        return "Die Vorlesungsstunden für die Lehrveranstaltung " + titel + " wurden auf " + vorlesung + " gesetzt.";
     }
 
     public String VorlesungsstundenEntfernen () {
-        this.Vorlesungsstunden = null;
-        return "Die Vorlesungsstunden für die Lehrveranstaltung " + Titel + " wurden entfernt.";
+        this.vorlesungsstunden = null;
+        return "Die Vorlesungsstunden für die Lehrveranstaltung " + titel + " wurden entfernt.";
     }
 
-    public String PraktkiumsstundenHinzufuegen (KlassePraktikumsstunde Praktikumsstunden) {
-        this.Praktikumsstunden = Praktikumsstunden;
-        return "Die Praktikumsstunden für die Lehrveranstaltung " + Titel + " wurden auf " + Praktikumsstunden + " gesetzt.";
+    public String PraktikumsstundenHinzufuegen (String praktikum) {
+        this.praktikumsstunden = praktikum;
+        return "Die Praktikumsstunden für die Lehrveranstaltung " + titel + " wurden auf " + praktikum + " gesetzt.";
     }
 
-    pubic String PraktikumsstundenEntfernen () {
-        this.Praktikumsstunden = null;
-        return "Die Praktikumsstunden für die Lehrveranstaltung " + Titel + " wurden entfernt.";
+    public String PraktikumsstundenEntfernen () {
+        this.praktikumsstunden = null;
+        return "Die Praktikumsstunden für die Lehrveranstaltung " + titel + " wurden entfernt.";
     }
 
     public String VeranstaltungsdetailsAnzeigen () {
-        return "Lehrveranstaltung: " + Titel + "\nDozierende: " + Dozierende + "\nStudierende: " + Studierende + "\nVorlesungsstunden: " + Vorlesungsstunden + "\nPraktikumsstunden: " + Praktikumsstunden;
+
+        String liste = "";
+        for (int i = 0; i < studierende.length; i++) {
+            liste += studierende[i] + "\n";
+        }
+        return "Lehrveranstaltung: " + titel + "\nDozierende: " + dozierende + "\nStudierende: " + liste + "\nVorlesungsstunden: " + vorlesungsstunden + "\nPraktikumsstunden: " + praktikumsstunden;
     }
 }
