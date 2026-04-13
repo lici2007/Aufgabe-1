@@ -28,4 +28,16 @@ public class KlasseStudierende {
     public String getName() {
         return name;
     }
+
+    public void anmeldenLehrveranstaltung (Lehrveranstaltung lehrveranstaltung) {
+        System.out.println (lehrveranstaltung.StudierendeHinzufuegen(this.name);
+    }
+
+    public void abmeldenLehrveranstaltung (Lehrveranstaltung lehrveranstaltung) {
+        System.out.println (lehrveranstaltung.StudierendeEntfernen(this.name);
+    }
+
+    public void teilnahmeLehrveranstaltung () {
+        System.out.println (name + );
+    }
 }
