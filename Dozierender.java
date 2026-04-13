@@ -6,13 +6,15 @@ public class Dozierender {
     private String feedback;
 
 
-public Dozierender (String name, String fakultaet, String bueronummer) {
+    private String feedbackListe = new String();
+
+    public Dozierender (String name, String fakultaet, String bueronummer) {
     this.name = name;
     this.fakultaet = fakultaet;
     this.bueronummer = bueronummer;
 }
-public String frageBeantworten (KlasseStudierender studierender, String antwort){
-    return "Antwort von" + name + "an " + studierender.getName() + ": Die Antwort auf Ihre Frage ist: " + antwort;
+public String frageBeantworten (KlasseStudierende studierende, String antwort){
+    return "Antwort von" + name + "an " + studierende.getName() + ": Die Antwort auf Ihre Frage ist: " + antwort;
 }
 public String getSprechstunde () {
     return sprechstunde; 
@@ -20,8 +22,16 @@ public String getSprechstunde () {
 public void setSprechstunde (String sprechstunde) {
     this.sprechstunde = sprechstunde;
 
-public String feedbackerhalten (KlasseStudierender studierender, String feedback) {
-    return "Feedback von" + studierender.getName() + ": " + feedback;
+public String feedbackErhalten (KlasseStudierende studierende, String feedback) {
+    return "Feedback von" + studierende.getName() + ": " + feedback;
 }
 
-
+public void zeigeFeedback () {
+    for (String feedback : feedbackListe) {
+        System.out.println("Feedback für " + name + ": " + feedback);
+    }
+}
+public String getName() {
+    return name;
+}
+}
