@@ -2,8 +2,8 @@ public class Lehrveranstaltung {
     private String titel; 
     private String dozierender; 
     private String[] studierende; 
-    private String vorlesungsstunden;
-    private String praktikumsstunden;
+    private String[] vorlesungsstunden;
+    private String[] praktikumsstunden;
 
     public Lehrveranstaltung (String titel, Dozierender dozierender, String[] studierende) {
         this.titel = titel;
