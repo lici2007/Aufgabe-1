@@ -1,18 +1,18 @@
 public class Vorlesungsstunde {
-    private String Thema;
-    private String Datum;
-    private String Uhrzeit;
-    private String Raum;
+    private String thema;
+    private String datum;
+    private String uhrzeit;
+    private String raum;
 
-    public Vorlesungsstunde (String Thema, String Datum, String Uhrzeit, String Raum) {
-        this.Thema = Thema;
-        this.Datum = Datum;
-        this.Uhrzeit = Uhrzeit;
-        this.Raum = Raum;
+    public Vorlesungsstunde (String thema, String datum, String uhrzeit, String raum) {
+        this.thema = thema;
+        this.datum = datum;
+        this.uhrzeit = uhrzeit;
+        this.raum = raum;
     }
 
     public String VorlesungsdetailsAnzeigen () {
-        return "Vorlesungsstunde: " + Thema + "\nDatum: " + Datum + "\nUhrzeit: " + Uhrzeit + "\nRaum: " + Raum;
+        return "Vorlesungsstunde: " + thema + "\nDatum: " + datum + "\nUhrzeit: " + uhrzeit + "\nRaum: " + raum;
     }
     
 }
