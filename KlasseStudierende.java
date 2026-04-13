@@ -10,17 +10,22 @@ public class KlasseStudierende {
         this.studiengang = studiengang;
     }
 
-     public frageStellen (String frage){
+     public String frageStellen (String frage){
         return name + ", " + matrikelnummer + ", " + studiengang + ": " + frage;
     }
 
-    public String Sprechstundenanfrage (Dozierender dozierender, String tag, String uhrzeit, String betreff){
+    public String sprechstundenanfrage (Dozierender dozierender, String tag, String uhrzeit, String betreff){
         String anfrage = dozierender + ", " +tag + ", " + uhrzeit + ", " + betreff;
         this.sprechstundenanfrage = anfrage;
         return name + ", " + matrikelnummer + ", " + studiengang + ": " + anfrage;
     }
 
     public String feedbackSchreiben (Dozierender dozierender, String feedback){
-        return name + ", " + matrikelnummer + ", " + studiengang + ": " + dozierender + ", " + feedback;
+        dozierender.feedbackErhalten(this, feedback);
+        return "Feedback gesendet an " + dozierender.getName() + ": " + feedback;
+    }
+
+    public String getName() {
+        return name;
     }
 }
