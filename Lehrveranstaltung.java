@@ -82,6 +82,6 @@ public class Lehrveranstaltung {
         for (int i = 0; i < studierende.length; i++) {
             liste += studierende[i] + "\n";
         }
-        return "Lehrveranstaltung: " + titel + "\nDozierende: " + dozierende + "\nStudierende: " + liste + "\nVorlesungsstunden: " + vorlesungsstunden + "\nPraktikumsstunden: " + praktikumsstunden;
+        return "Lehrveranstaltung: " + titel + "\nDozierende: " + dozierender + "\nStudierende: " + liste + "\nVorlesungsstunden: " + vorlesungsstunden + "\nPraktikumsstunden: " + praktikumsstunden;
     }
 }
