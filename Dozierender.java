@@ -34,4 +34,13 @@ public void zeigeFeedback () {
 public String getName() {
     return name;
 }
+
+public Lehrveranstaltung erstelleLehrveranstaltung (String titel, String[] studierende) {
+    return new Lehrveranstaltung(titel, this, studierende);
+}
+
+public void verwalteTeilnehmer (Lehrveranstaltung lehrveranstaltung) {}
+    System.out.println("Teilnehmerliste:");
+    System.out.println(lehrveranstaltung.VeranstaltungsdetailsAnzeigen());
+}
 }
