@@ -4,7 +4,7 @@ public class KlasseStudierende {
     private String studiengang;
     private String sprechstundenanfrage;
 
-    public studierender (String name, int matrikelnummer, String studiengang){
+    public KlasseStudierende (String name, int matrikelnummer, String studiengang){
         this.name = name;
         this.matrikelnummer = matrikelnummer;
         this.studiengang = studiengang;
@@ -15,9 +15,9 @@ public class KlasseStudierende {
     }
 
     public String sprechstundenanfrage (Dozierender dozierender, String tag, String uhrzeit, String betreff){
-        String anfrage = dozierender + ", " +tag + ", " + uhrzeit + ", " + betreff;
+        String anfrage = "An Dozierender " + dozierender.getName() + ": " + tag + ", " + uhrzeit + ", " + betreff;
         this.sprechstundenanfrage = anfrage;
-        return name + ", " + matrikelnummer + ", " + studiengang + ": " + anfrage;
+        return name + " stellt Anfrage: " + anfrage;
     }
 
     public String feedbackSchreiben (Dozierender dozierender, String feedback){
@@ -30,14 +30,14 @@ public class KlasseStudierende {
     }
 
     public void anmeldenLehrveranstaltung (Lehrveranstaltung lehrveranstaltung) {
-        System.out.println (lehrveranstaltung.StudierendeHinzufuegen(this.name);
+        System.out.println (lehrveranstaltung.StudierendeHinzufuegen(this.name));
     }
 
     public void abmeldenLehrveranstaltung (Lehrveranstaltung lehrveranstaltung) {
-        System.out.println (lehrveranstaltung.StudierendeEntfernen(this.name);
+        System.out.println (lehrveranstaltung.StudierendeEntfernen(this.name));
     }
 
     public void teilnahmeLehrveranstaltung () {
-        System.out.println (name + );
+        System.out.println (name + " nimmt an der Lehrveranstaltung teil" );
     }
 }
