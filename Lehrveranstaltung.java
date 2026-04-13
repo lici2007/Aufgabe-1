@@ -44,7 +44,7 @@ public class Lehrveranstaltung {
     
 
 
-    public String VorlesungsstundenHinzufuegen (String Vorlesungsstunden) {
+    public String VorlesungsstundenHinzufuegen (KlasseVorlesungsstunde Vorlesungsstunden) {
         this.Vorlesungsstunden = Vorlesungsstunden;
         return "Die Vorlesungsstunden für die Lehrveranstaltung " + Titel + " wurden auf " + Vorlesungsstunden + " gesetzt.";
     }
@@ -54,7 +54,7 @@ public class Lehrveranstaltung {
         return "Die Vorlesungsstunden für die Lehrveranstaltung " + Titel + " wurden entfernt.";
     }
 
-    public String PraktkiumsstundenHinzufuegen (String Praktikumsstunden) {
+    public String PraktkiumsstundenHinzufuegen (KlassePraktikumsstunde Praktikumsstunden) {
         this.Praktikumsstunden = Praktikumsstunden;
         return "Die Praktikumsstunden für die Lehrveranstaltung " + Titel + " wurden auf " + Praktikumsstunden + " gesetzt.";
     }
